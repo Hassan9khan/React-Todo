@@ -7,6 +7,11 @@ const App = () => {
   const addTodo = (event) => {
     event.preventDefault();
     console.log(todoValue.current.value);
+    const todoInput = todoValue.current.value.trim()
+    if (todoInput === ""){
+      alert("Please enter a todo item")
+      return;
+    } 
     todo.push(todoValue.current.value);
     console.log(todo);
     setTodo([...todo]);
@@ -40,6 +45,7 @@ const App = () => {
           ref={todoValue}
           placeholder="Type here"
           className="input input-bordered input-error w-full max-w-xs mt-4 italic text-xl"
+          required
         />
         <button type="submit" className="btn btn-success  text-white ml-7">
           Submit
